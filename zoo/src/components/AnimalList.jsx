@@ -45,17 +45,26 @@ const AnimalList = () => {
     ]);
   };
   
-  const [name, setName] = useState('');
-  const [species, setSpecies] = useState('');
-  const [date_of_birth, setDateOfBirth] = useState('');
-  const [message, setMessage] = useState('');
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault(); // Prevents default behaviour of form submit action
+  
+  //   const handleSubmit = (e) => {
+    //     e.preventDefault(); // Prevents default behaviour of form submit action
 
 //  };
 
-const handleSubmit = (event) => {
+const options = ['snake', 'bird', 'cat', 'dog'];
+
+const [value, setValue] = useState('animal');
+
+const handleChange = (event) => {
+  setValue(event.target.value);
+};
+
+const [name, setName] = useState('');
+const [species, setSpecies] = useState('');
+const [date_of_birth, setDateOfBirth] = useState('');
+const [message, setMessage] = useState('');
+
+const addAnimal = (event) => {
   event.preventDefault();
 
   setMessage(`Hello ${name}!`);
@@ -67,7 +76,7 @@ const handleSubmit = (event) => {
   return (
     <div>
       <form>
-        <label onSubmit={handleSubmit}>
+        <label onSubmit={addAnimal}>
           Name:
           <input
             type='text'
@@ -101,12 +110,19 @@ const handleSubmit = (event) => {
               setDateOfBirth(e.target.value);
             }}
           />
+          <select value={value} onChange={handleChange}>
+          {options.map((option) => (
+            <option>{option}</option>
+          ))}
+        </select>
           </label>
           <button type="submit">Submit</button>
           <h2>{message}</h2>
-
-
+        
       </form>
+
+
+
       <table>
         <thead>
           <tr>
@@ -126,6 +142,25 @@ const handleSubmit = (event) => {
               <td>
                 <button onClick={() => onRemove(animal.name)}>Remove</button>
                 <button onClick={() => MoveToTop(index)}>Move to top</button>
+              </td>
+            </tr>
+            
+          ))}
+        </tbody>
+        <br></br>
+        <thead>
+          <tr>
+            <th>Ime sektora</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {options.map((option) => (
+            // pozovi hook
+            <tr key={option}>
+              <td>{option}</td>
+              <td>
+                <button >Check animals</button>
               </td>
             </tr>
             
