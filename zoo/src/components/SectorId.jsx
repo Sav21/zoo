@@ -1,10 +1,15 @@
-const SectorId = ({animals, sector, onSector}) => {
-    return(
-      <div style={{border: '1px solid black', borderRadius: '5px', margin: '4px'}}>
-        <div>{sector}</div>
-        <button onClick={() => onSector(sector)}>Select</button>
-      </div>
-    );
-  }
+const SectorId = ({animals, animalSectors, index}) => {
+  let sector = animalSectors[index];
+  let sectorAnimals = animals.filter((animal) => animal.sector == sector);
+  console.log(sectorAnimals);
+  return (
+    <div style={{color: "white"}}>
+      {sectorAnimals.map((animal) => 
+        <div style={{fontSize: "30px", border: "3px solid white", borderRadius: "10px", margin: "5px", padding: "5px"}}>{animal.name}</div>
+      )}
+    </div>
+  )
   
-  export default SectorId;
+}
+
+export default SectorId;

@@ -1,12 +1,5 @@
-import { Link } from "react-router-dom";
-
 const Welcome = () => {
-  return (
-  <div>
-    <h1>Welcome</h1>
-    <Link to={`/animals`}>Animal list</Link>
-    </div>
-  )
+  return <div style={{color: "white", fontSize: "100px", border: "3px solid white", borderRadius: "50px", padding: "20px"}}>Dobrodosli!</div>
 }
 
 export default Welcome;

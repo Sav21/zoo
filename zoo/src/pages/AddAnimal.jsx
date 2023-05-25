@@ -1,7 +1,7 @@
-import AnimalForm from "../components2/AnimalForm";
+import AddAnimalForm from "../components/AddAnimalForm";
 
-const AddAnimal = () => {
-  return <AnimalForm />
+const AddAnimal = ({handleSubmit, handleInputChange, state}) => {
+  return <AddAnimalForm handleSubmit={handleSubmit} handleInputChange={handleInputChange} state={state}/>
 }
 
 export default AddAnimal;
